@@ -1,0 +1,89 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "2L/20R",
+      "properties": {
+        "pair": "2L/20R",
+        "source": "FAA AIP runway thresholds via Turnarounds"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -86.6864751389,
+            36.1176761667
+          ],
+          [
+            -86.6785648611,
+            36.1378423333
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2C/20C",
+      "properties": {
+        "pair": "2C/20C",
+        "source": "FAA AIP runway thresholds via Turnarounds"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -86.6879608611,
+            36.1033305278
+          ],
+          [
+            -86.6795972222,
+            36.1242335
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "2R/20L",
+      "properties": {
+        "pair": "2R/20L",
+        "source": "FAA AIP runway thresholds via Turnarounds"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -86.6676427222,
+            36.1127130556
+          ],
+          [
+            -86.6592765278,
+            36.1336143333
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "13/31",
+      "properties": {
+        "pair": "13/31",
+        "source": "FAA AIP runway thresholds via Turnarounds"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -86.6953552222,
+            36.1412775278
+          ],
+          [
+            -86.6681773333,
+            36.1204958889
+          ]
+        ]
+      }
+    }
+  ]
+}

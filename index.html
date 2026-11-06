@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#10283a" />
+    <title>BNA Airfield Model Starter</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" href="./src/map.css" />
+    <script type="module" src="./src/app.mjs"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#workspace">Skip to workspace</a>
+    <header class="masthead">
+      <div class="frame masthead-inner">
+        <div class="identity">
+          <svg class="identity-icon" viewBox="0 0 36 36" aria-hidden="true" fill="none">
+            <rect x="0.5" y="0.5" width="35" height="35" rx="8" stroke="currentColor" opacity=".35" />
+            <path d="M12 27 22 9M17 27 27 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            <path d="m14 17 6 3m-4-7 6 3m-10 5 6 3" stroke="currentColor" stroke-width="1" opacity=".6" />
+          </svg>
+          <span>BNA <span class="identity-divider">/</span> Airfield</span>
+        </div>
+        <span class="workspace-tag"><span aria-hidden="true"></span> Local workspace</span>
+      </div>
+    </header>
+
+    <main id="workspace" class="frame" tabindex="-1">
+      <div class="intro">
+        <div>
+          <p class="eyebrow">Nashville International Airport <span aria-hidden="true">·</span> KBNA</p>
+          <h1>Airfield model starter</h1>
+          <p class="intro-copy">Start with BNA’s gate locations and build your own airfield model.</p>
+        </div>
+        <div class="gate-stat" hidden id="gate-stat">
+          <strong id="gate-count"></strong>
+          <span>Surveyed gate points</span>
+        </div>
+      </div>
+
+      <p id="load-status" class="load-status" role="status" hidden></p>
+      <noscript><p class="load-status">Enable JavaScript to open the map and run model modules.</p></noscript>
+
+      <div class="workspace-grid">
+        <section class="card reference-card" aria-labelledby="reference-title">
+          <div class="card-head map-head">
+            <div>
+              <h2 id="reference-title">Airfield reference</h2>
+              <p id="reference-subtitle">Gate survey and schematic runway locations</p>
+            </div>
+            <div class="view-switch" role="group" aria-label="Map view">
+              <button type="button" data-view="terminal" aria-pressed="true" disabled>Terminal</button>
+              <button type="button" data-view="airfield" aria-pressed="false" disabled>Airfield</button>
+            </div>
+          </div>
+          <div class="map-stage">
+            <svg id="airfield-map" aria-label="Nashville International Airport reference map"></svg>
+            <p id="map-placeholder">Loading reference map…</p>
+          </div>
+          <ul id="map-legend" class="map-legend" aria-label="Map legend"></ul>
+          <div class="gate-selector">
+            <div class="gate-control">
+              <label for="gate-select">Reference gate <span class="optional">Optional</span></label>
+              <select id="gate-select" disabled><option value="">No gate selected</option></select>
+            </div>
+            <p id="gate-details" aria-live="polite">Select a gate to inspect its coordinates.</p>
+          </div>
+        </section>
+
+        <div class="model-column">
+          <section class="card model-card" aria-labelledby="model-title">
+            <div class="card-head">
+              <div>
+                <h2 id="model-title">Model workspace</h2>
+                <p>Choose a module and set up a scenario.</p>
+              </div>
+            </div>
+            <form id="model-form" class="model-form">
+              <div class="field">
+                <label for="model-select">Model module</label>
+                <select id="model-select" aria-describedby="model-description" disabled></select>
+                <p class="field-help" id="model-description"></p>
+              </div>
+              <div class="field">
+                <label for="scenario-name">Scenario name</label>
+                <input type="text" id="scenario-name" placeholder="Untitled scenario" autocomplete="off" />
+              </div>
+              <div id="model-inputs" class="model-inputs"></div>
+              <button type="submit" id="run-model" class="primary-button" disabled>
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor" /></svg>
+                <span>Run model</span>
+              </button>
+            </form>
+          </section>
+
+          <section class="card results-card" aria-labelledby="results-title">
+            <div class="card-head results-head">
+              <h2 id="results-title">Results</h2>
+              <button type="button" id="export-result" class="export-button" hidden>Download JSON</button>
+            </div>
+            <div class="results-body">
+              <p id="run-status" role="status">Run a model to see its output here.</p>
+              <dl id="run-metrics" class="run-metrics" hidden></dl>
+              <ul id="run-notes" class="run-notes" hidden></ul>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="page-footer">
+        <p>Reference geography for model development and planning. Gate points have no footprints.</p>
+        <p>BNA local time zone: <span id="airport-timezone">America/Chicago</span></p>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,837 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "T1",
+      "properties": {
+        "code": "T1",
+        "concourse": "T Gates",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67024514096492,
+          36.13018348589049
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "T2",
+      "properties": {
+        "code": "T2",
+        "concourse": "T Gates",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67028027976978,
+          36.13059369742021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "T3",
+      "properties": {
+        "code": "T3",
+        "concourse": "T Gates",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67046679457387,
+          36.13102284516915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "T4",
+      "properties": {
+        "code": "T4",
+        "concourse": "T Gates",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67070799858243,
+          36.131239356946374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "T5",
+      "properties": {
+        "code": "T5",
+        "concourse": "T Gates",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67077537327957,
+          36.1316511751135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "T6",
+      "properties": {
+        "code": "T6",
+        "concourse": "T Gates",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67099504658148,
+          36.13201813644464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B4",
+      "properties": {
+        "code": "B4",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67152666853974,
+          36.13231381051388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B6",
+      "properties": {
+        "code": "B6",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67193474500787,
+          36.132352184182906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B8",
+      "properties": {
+        "code": "B8",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67235102204162,
+          36.132502165435326
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B10",
+      "properties": {
+        "code": "B10",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67270169723092,
+          36.132733821053364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B11",
+      "properties": {
+        "code": "B11",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67263349041916,
+          36.13301016730467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B9",
+      "properties": {
+        "code": "B9",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67245593842142,
+          36.13322372304777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B7",
+      "properties": {
+        "code": "B7",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.6720711720966,
+          36.13321694544228
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B5",
+      "properties": {
+        "code": "B5",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67161032627718,
+          36.13298853204596
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B3",
+      "properties": {
+        "code": "B3",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67106474134015,
+          36.13286547923208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "B1",
+      "properties": {
+        "code": "B1",
+        "concourse": "B",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67044713576114,
+          36.13266455183021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C13",
+      "properties": {
+        "code": "C13",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67087761614435,
+          36.12942968462365
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C14",
+      "properties": {
+        "code": "C14",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67118889422548,
+          36.129168637132246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C15",
+      "properties": {
+        "code": "C15",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67118102111347,
+          36.12889797627367
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C16",
+      "properties": {
+        "code": "C16",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67100571400991,
+          36.12870062410399
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C17",
+      "properties": {
+        "code": "C17",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67065687612163,
+          36.12849160092881
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C18",
+      "properties": {
+        "code": "C18",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67029706022106,
+          36.12824725464311
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C19",
+      "properties": {
+        "code": "C19",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.6699439427145,
+          36.12799645231899
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C21",
+      "properties": {
+        "code": "C21",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66960981358733,
+          36.12773136029891
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C23",
+      "properties": {
+        "code": "C23",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66926929283754,
+          36.12753687964393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C25",
+      "properties": {
+        "code": "C25",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.6689480458093,
+          36.12753859482977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C27",
+      "properties": {
+        "code": "C27",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66862641080213,
+          36.1277383225393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C26",
+      "properties": {
+        "code": "C26",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66858370471034,
+          36.128004071314905
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C24",
+      "properties": {
+        "code": "C24",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66891131343242,
+          36.12826389904933
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C22",
+      "properties": {
+        "code": "C22",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66933452318732,
+          36.12855393953389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C20",
+      "properties": {
+        "code": "C20",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66965822461137,
+          36.128808837046215
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C3",
+      "properties": {
+        "code": "C3",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66975350104204,
+          36.12942122469024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C1",
+      "properties": {
+        "code": "C1",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66953161303792,
+          36.12977541541374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D1",
+      "properties": {
+        "code": "D1",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66813747195907,
+          36.129887892529204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D2",
+      "properties": {
+        "code": "D2",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66778791996329,
+          36.1296133444177
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D3",
+      "properties": {
+        "code": "D3",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66744227616124,
+          36.12938629147127
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D4",
+      "properties": {
+        "code": "D4",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66707335751741,
+          36.12911331049374
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D5",
+      "properties": {
+        "code": "D5",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66670565325326,
+          36.1288782126244
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D6",
+      "properties": {
+        "code": "D6",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66637935335467,
+          36.12831633811154
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D7",
+      "properties": {
+        "code": "D7",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66628400147854,
+          36.1279418228853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D8",
+      "properties": {
+        "code": "D8",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66634720879917,
+          36.127497852405845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D9",
+      "properties": {
+        "code": "D9",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66651419183016,
+          36.12710155216948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D10",
+      "properties": {
+        "code": "D10",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66680266188261,
+          36.126796356240334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "D11",
+      "properties": {
+        "code": "D11",
+        "concourse": "D",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.66695931851352,
+          36.12645095285021
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C11",
+      "properties": {
+        "code": "C11",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67055465305836,
+          36.12561099021585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C10",
+      "properties": {
+        "code": "C10",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.6708484685312,
+          36.12585108651369
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C9",
+      "properties": {
+        "code": "C9",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67118441510156,
+          36.12613234745949
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C8",
+      "properties": {
+        "code": "C8",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67155225420312,
+          36.12638669706718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C7",
+      "properties": {
+        "code": "C7",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.6719042246061,
+          36.12665894064329
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C6",
+      "properties": {
+        "code": "C6",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67225791989475,
+          36.12692705536763
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C5",
+      "properties": {
+        "code": "C5",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67260798300872,
+          36.1271958455732
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "C4",
+      "properties": {
+        "code": "C4",
+        "concourse": "C",
+        "source": "operator survey 2026-08-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -86.67285116233835,
+          36.12735821992499
+        ]
+      }
+    }
+  ]
+}

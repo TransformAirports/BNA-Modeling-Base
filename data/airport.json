@@ -1,0 +1,11 @@
+{
+  "code": "BNA",
+  "icaoCode": "KBNA",
+  "name": "Nashville International Airport",
+  "timezone": "America/Chicago",
+  "referencePoint": [
+    -86.678180556,
+    36.124475
+  ],
+  "source": "FAA AIP airport reference point via Turnarounds"
+}
