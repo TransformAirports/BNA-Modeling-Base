@@ -1,11 +1,24 @@
 {
-  "name": "bna-airfield-template",
-  "version": "1.0.0",
+  "name": "bna-modeling-base",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
+  "description": "Cinematic 3D Mapbox view of Nashville International Airport (BNA) with a 24-hour playback of gate, taxi, and runway activity.",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
-    "start": "node scripts/serve.mjs",
-    "test": "node --test"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test",
+    "fetch:osm": "node scripts/fetch-osm.mjs"
+  },
+  "dependencies": {
+    "mapbox-gl": "3.33.0",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "vite": "8.3.5"
   }
 }

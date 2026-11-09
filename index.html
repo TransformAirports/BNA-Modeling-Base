@@ -3,115 +3,140 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#10283a" />
-    <title>BNA Airfield Model Starter</title>
-    <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="./src/styles.css" />
-    <link rel="stylesheet" href="./src/map.css" />
-    <script type="module" src="./src/app.mjs"></script>
+    <meta name="theme-color" content="#070b14" />
+    <title>BNA Live · Nashville International</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23070b14'/%3E%3Cpath d='M16 5l2.2 8.6 8.3 3.4-8.3 1.6L17 27h-2l-1.2-8.4-8.3-1.6 8.3-3.4z' fill='%235be0ff'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles/app.css" />
   </head>
   <body>
-    <a class="skip-link" href="#workspace">Skip to workspace</a>
-    <header class="masthead">
-      <div class="frame masthead-inner">
-        <div class="identity">
-          <svg class="identity-icon" viewBox="0 0 36 36" aria-hidden="true" fill="none">
-            <rect x="0.5" y="0.5" width="35" height="35" rx="8" stroke="currentColor" opacity=".35" />
-            <path d="M12 27 22 9M17 27 27 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            <path d="m14 17 6 3m-4-7 6 3m-10 5 6 3" stroke="currentColor" stroke-width="1" opacity=".6" />
-          </svg>
-          <span>BNA <span class="identity-divider">/</span> Airfield</span>
+    <div id="map" aria-label="3D map of Nashville International Airport"></div>
+    <div id="tags" class="tags" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <!-- Top-left: identity, clock, conditions -->
+    <header class="panel brand">
+      <div class="brand-row">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M16 3.5l2.4 9.3 9 3.7-9 1.7L17.1 28h-2.2l-1.3-9.8-9-1.7 9-3.7z" /></svg>
         </div>
-        <span class="workspace-tag"><span aria-hidden="true"></span> Local workspace</span>
+        <div>
+          <div class="brand-title">BNA <span>Live</span></div>
+          <div class="brand-sub">Nashville International · KBNA</div>
+        </div>
+      </div>
+      <div class="clock" aria-live="off">
+        <span id="clock-hm" class="clock-hm">06:15</span><span id="clock-s" class="clock-s">:00</span>
+        <span class="clock-tz">CST</span>
+      </div>
+      <div class="conditions">
+        <span id="date-label">—</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span id="sky-label" class="sky-label">—</span>
       </div>
     </header>
 
-    <main id="workspace" class="frame" tabindex="-1">
-      <div class="intro">
+    <!-- Top-right: camera + view controls -->
+    <nav class="panel toolbar" aria-label="View controls">
+      <div class="segmented" id="camera-buttons">
+        <button type="button" data-camera="overview">Airfield</button>
+        <button type="button" data-camera="terminal">Terminal</button>
+        <button type="button" data-camera="runways">Runways</button>
+        <button type="button" data-camera="orbit" title="Slowly circle the airport (O)">Orbit</button>
+        <button type="button" data-camera="follow" title="Chase a random moving aircraft (F)">Follow</button>
+      </div>
+      <div class="toolbar-divider" aria-hidden="true"></div>
+      <div class="segmented" id="style-buttons">
+        <button type="button" data-style="standard" title="Mapbox 3D map with extruded buildings">3D Map</button>
+        <button type="button" data-style="satellite" title="Satellite imagery">Satellite</button>
+      </div>
+      <button type="button" class="chip-toggle" id="tags-toggle" aria-pressed="true" title="Show flight tags (T)">Tags</button>
+    </nav>
+
+    <!-- Right column: live stats + flight board -->
+    <aside class="side">
+      <section class="panel stats" aria-label="Live airfield status">
+        <div class="stat"><span class="stat-label">Airborne</span><span class="stat-value" id="stat-airborne">0</span></div>
+        <div class="stat"><span class="stat-label">Taxiing</span><span class="stat-value" id="stat-taxiing">0</span></div>
+        <div class="stat"><span class="stat-label">At gate</span><span class="stat-value"><span id="stat-parked">0</span><small id="stat-gates">/52</small></span></div>
+        <div class="stat"><span class="stat-label">Movements</span><span class="stat-value"><span id="stat-moves">0</span><small id="stat-moves-total">/0</small></span></div>
+      </section>
+
+      <section class="panel board" aria-label="Flight board">
+        <div class="board-tabs" role="tablist">
+          <button type="button" role="tab" data-board="departures" aria-selected="true">Departures</button>
+          <button type="button" role="tab" data-board="arrivals" aria-selected="false">Arrivals</button>
+        </div>
+        <ol id="board-rows" class="board-rows"></ol>
+      </section>
+    </aside>
+
+    <!-- Selected flight -->
+    <section id="flight-card" class="panel flight-card" hidden aria-live="polite">
+      <div class="fc-stripe" id="fc-stripe"></div>
+      <div class="fc-head">
         <div>
-          <p class="eyebrow">Nashville International Airport <span aria-hidden="true">·</span> KBNA</p>
-          <h1>Airfield model starter</h1>
-          <p class="intro-copy">Start with BNA’s gate locations and build your own airfield model.</p>
+          <div class="fc-flight" id="fc-flight">—</div>
+          <div class="fc-meta" id="fc-meta">—</div>
         </div>
-        <div class="gate-stat" hidden id="gate-stat">
-          <strong id="gate-count"></strong>
-          <span>Surveyed gate points</span>
+        <button type="button" class="icon-button" id="fc-close" aria-label="Close flight details">
+          <svg viewBox="0 0 16 16"><path d="M4 4l8 8M12 4l-8 8" /></svg>
+        </button>
+      </div>
+      <div class="fc-route" id="fc-route"></div>
+      <div class="fc-phase"><span class="phase-dot"></span><span id="fc-phase">—</span></div>
+      <dl class="fc-grid">
+        <div><dt>Speed</dt><dd id="fc-speed">—</dd></div>
+        <div><dt>Altitude</dt><dd id="fc-alt">—</dd></div>
+        <div><dt>Heading</dt><dd id="fc-heading">—</dd></div>
+        <div><dt>Runway</dt><dd id="fc-runway">—</dd></div>
+      </dl>
+      <button type="button" class="primary" id="fc-follow">Follow this aircraft</button>
+    </section>
+
+    <!-- Bottom: playback + 24h timeline -->
+    <footer class="panel dock">
+      <button type="button" class="play" id="play" aria-label="Play">
+        <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" /></svg>
+        <svg class="icon-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" /></svg>
+      </button>
+      <div class="speed" id="speed" role="group" aria-label="Playback speed"></div>
+      <div class="timeline" id="timeline">
+        <canvas id="timeline-canvas"></canvas>
+        <div class="playhead" id="playhead"><span id="playhead-label">06:15</span></div>
+        <div class="hover-time" id="hover-time" hidden></div>
+        <div class="timeline-legend">
+          <span class="lg lg-arr">Arrivals</span>
+          <span class="lg lg-dep">Departures</span>
+          <span class="lg-note">Synthetic schedule</span>
         </div>
       </div>
+    </footer>
 
-      <p id="load-status" class="load-status" role="status" hidden></p>
-      <noscript><p class="load-status">Enable JavaScript to open the map and run model modules.</p></noscript>
-
-      <div class="workspace-grid">
-        <section class="card reference-card" aria-labelledby="reference-title">
-          <div class="card-head map-head">
-            <div>
-              <h2 id="reference-title">Airfield reference</h2>
-              <p id="reference-subtitle">Gate survey and schematic runway locations</p>
-            </div>
-            <div class="view-switch" role="group" aria-label="Map view">
-              <button type="button" data-view="terminal" aria-pressed="true" disabled>Terminal</button>
-              <button type="button" data-view="airfield" aria-pressed="false" disabled>Airfield</button>
-            </div>
-          </div>
-          <div class="map-stage">
-            <svg id="airfield-map" aria-label="Nashville International Airport reference map"></svg>
-            <p id="map-placeholder">Loading reference map…</p>
-          </div>
-          <ul id="map-legend" class="map-legend" aria-label="Map legend"></ul>
-          <div class="gate-selector">
-            <div class="gate-control">
-              <label for="gate-select">Reference gate <span class="optional">Optional</span></label>
-              <select id="gate-select" disabled><option value="">No gate selected</option></select>
-            </div>
-            <p id="gate-details" aria-live="polite">Select a gate to inspect its coordinates.</p>
-          </div>
-        </section>
-
-        <div class="model-column">
-          <section class="card model-card" aria-labelledby="model-title">
-            <div class="card-head">
-              <div>
-                <h2 id="model-title">Model workspace</h2>
-                <p>Choose a module and set up a scenario.</p>
-              </div>
-            </div>
-            <form id="model-form" class="model-form">
-              <div class="field">
-                <label for="model-select">Model module</label>
-                <select id="model-select" aria-describedby="model-description" disabled></select>
-                <p class="field-help" id="model-description"></p>
-              </div>
-              <div class="field">
-                <label for="scenario-name">Scenario name</label>
-                <input type="text" id="scenario-name" placeholder="Untitled scenario" autocomplete="off" />
-              </div>
-              <div id="model-inputs" class="model-inputs"></div>
-              <button type="submit" id="run-model" class="primary-button" disabled>
-                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.5v9l7-4.5z" fill="currentColor" /></svg>
-                <span>Run model</span>
-              </button>
-            </form>
-          </section>
-
-          <section class="card results-card" aria-labelledby="results-title">
-            <div class="card-head results-head">
-              <h2 id="results-title">Results</h2>
-              <button type="button" id="export-result" class="export-button" hidden>Download JSON</button>
-            </div>
-            <div class="results-body">
-              <p id="run-status" role="status">Run a model to see its output here.</p>
-              <dl id="run-metrics" class="run-metrics" hidden></dl>
-              <ul id="run-notes" class="run-notes" hidden></ul>
-            </div>
-          </section>
+    <!-- Startup / token -->
+    <div id="splash" class="splash">
+      <div class="splash-inner">
+        <div class="brand-mark big" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M16 3.5l2.4 9.3 9 3.7-9 1.7L17.1 28h-2.2l-1.3-9.8-9-1.7 9-3.7z" /></svg>
         </div>
+        <h1>BNA <span>Live</span></h1>
+        <p id="splash-status">Building the airfield…</p>
+        <form id="token-form" class="token-form" hidden>
+          <label for="token-input">Mapbox access token</label>
+          <p class="token-help">Add <code>VITE_MAPBOX_TOKEN=pk…</code> to <code>.env.local</code> and restart <code>npm run dev</code>, or paste a public token here (kept in this browser only).</p>
+          <div class="token-row">
+            <input id="token-input" type="password" autocomplete="off" spellcheck="false" placeholder="pk.eyJ1Ijo…" />
+            <button type="submit" class="primary">Open map</button>
+          </div>
+          <a href="https://account.mapbox.com/access-tokens/" target="_blank" rel="noreferrer">Get a free token →</a>
+        </form>
       </div>
+    </div>
 
-      <footer class="page-footer">
-        <p>Reference geography for model development and planning. Gate points have no footprints.</p>
-        <p>BNA local time zone: <span id="airport-timezone">America/Chicago</span></p>
-      </footer>
-    </main>
+    <div class="kbd-hint" aria-hidden="true"><kbd>Space</kbd> play <kbd>←</kbd><kbd>→</kbd> scrub <kbd>[</kbd><kbd>]</kbd> speed <kbd>F</kbd> follow</div>
+
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

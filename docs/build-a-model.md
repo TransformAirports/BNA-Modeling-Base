@@ -6,7 +6,9 @@ Start by writing down the question, the inputs and their units, the expected out
 
 1. Copy `models/blank.mjs` to `models/your-model.mjs` and give it a unique `id`, a visible `name`, a `version`, and a short `description`.
 2. Declare editable scenario inputs. Use an empty `inputs` array if the model has no controls. Add your calculations to `run(context)` and return a summary and metrics.
-3. Import the new module in `models/index.mjs` and add it to `models`. Reload the browser and select it in **Model module**. Keep the blank module if you want a starting point for future work.
+3. Import the new module in `models/index.mjs` and add it to `models`. Run it with `runModel` from a test (see `test/model.test.mjs`) and check the result with `npm test`. Keep the blank module if you want a starting point for future work.
+
+> The 3D view (`npm run dev`) doesn't have a model panel yet. Planning models run headless through `runModel`. Wiring a panel into the HUD is listed under next steps in `AGENTS.md`.
 
 Here is a small module to illustrate the contract. It estimates inspection time from user inputs; it does not represent BNA procedures or supply defaults for real work.
 
@@ -43,11 +45,11 @@ import inspectionBudget from './inspection-budget.mjs';
 export const models = [blank, inspectionBudget];
 ```
 
-Enter `3` areas and `12.5` minutes per area to check that the result is `37.5 min`. Change the scenario name or an input to start a fresh run.
+Run it with `areas: 3` and `minutesPerArea: 12.5` and check that the result is `37.5 min`.
 
 ## Model contract
 
-Each input has a unique `key`, a visible `label`, a `type`, and optional `help`. The workspace creates the form automatically.
+Each input has a unique `key`, a visible `label`, a `type`, and optional `help`, so a UI can build a form from the declaration.
 
 | Type | Value supplied to `run` | Options |
 | --- | --- | --- |
@@ -62,12 +64,12 @@ The runner gives `run(context)` a read-only snapshot containing:
 - `selectedGateCode` and `selectedGate`: the optional reference gate code and its full GeoJSON feature. Both are `null` when none is selected. The entire gate inventory remains available regardless of the selection.
 - `scenarioName` and `inputs`: the name and validated values for this run.
 
-`run` may return its result directly or return a promise. Return `summary` and a `metrics` array. Each metric has `label`, `value` (a finite number, string, or `null` for unavailable), and an optional `unit`. Use optional `notes` for assumptions and limitations. Use optional `data` for structured JSON such as tables or simulated events. The workspace displays the summary, metrics, and notes; the JSON download also includes `data`.
+`run` may return its result directly or return a promise. Return `summary` and a `metrics` array. Each metric has `label`, `value` (a finite number, string, or `null` for unavailable), and an optional `unit`. Use optional `notes` for assumptions and limitations. Use optional `data` for structured JSON such as tables or simulated events. `runModel` returns a JSON-ready record containing the summary, metrics, notes and `data`.
 
 Keep calculation modules independent of the page so you can exercise them in Node with `runModel` from `src/model.mjs`. Pass parsed airport, gate, and runway files together with the scenario name, selected gate code, and typed inputs. The tests in `test/model.test.mjs` show the invocation and checks for a custom model.
 
 ## Keep a run reviewable
 
-The downloaded record includes a schema version, airport code, model ID and version, scenario name, optional gate code, input values, and result. Keep the model version, the reference files, and any additional input datasets alongside a run you need to reproduce. Record assumptions and units; include a seed as an input if the model uses randomness. When you change the calculation or input contract, increment the model version.
+The run record includes a schema version, airport code, model ID and version, scenario name, optional gate code, input values, and result. Keep the model version, the reference files, and any additional input datasets alongside a run you need to reproduce. Record assumptions and units; include a seed as an input if the model uses randomness. When you change the calculation or input contract, increment the model version.
 
 Check small cases with known results before using larger datasets. Identify which data came from the airport, which inputs were assumed, and which outputs are estimates. Gate points and runway lines are reference locations; models that depend on taxi paths, stand geometry, surface availability, or operating rules need their own suitable sources.

@@ -5,6 +5,13 @@
 | `airport.json` | Nashville International Airport identifiers, airport reference point, and the `America/Chicago` time zone | `turnarounds/hardware/registry/bna/create-airport.json` at `fdaf649795a92379ed1bc8ba4546c4fe953227b3` |
 | `gates.geojson` | 52 gate points from the BNA operator survey dated August 11, 2026 | `gates` array in `turnarounds/hardware/registry/bna/bna-osm-assets.json` at `deef21e300d12842b62df43ed89fcbd05e7e3f7e` |
 | `runways.geojson` | Four schematic lines connecting each runway pair’s thresholds | `BNA_RUNWAY_SOURCES` in `turnarounds/hardware/registry/bna/generate-bna-registry.ts` at `f9f2b2eb6e1f6ee9512b72ec265e3ae78ceec73e` |
+| `osm/bna-airfield.geojson` | OpenStreetMap taxiways (with node ids for routing), gate lead-in lines (`parking_position`), runways, aprons, terminals, holding positions and hangars around BNA | Overpass API snapshot from 2026-11-09, refreshed with `npm run fetch:osm`. © OpenStreetMap contributors, ODbL 1.0 |
+
+### How the 3D view uses these files
+
+- Gate survey points are the nose-wheel stop marks. 46 of the 52 sit within a few metres of an OSM lead-in line, which gives the stand heading. The six new D gates (D6–D11) have no mapped lead-in yet, so their heading points at the nearest terminal wall.
+- Taxiway ways that share an OSM node are connected in the routing graph. Runway entries and exits are taxiway nodes within 80 m of a runway centreline. Runway 2R/20L shares no nodes with taxiways in OSM, so its connectors are joined to the centreline geometrically.
+- Runway centrelines and thresholds come from `runways.geojson` (FAA), not from OSM.
 
 All positions use decimal degrees in `[longitude, latitude]` order. Keep `properties.code` as the key for joining model inputs to gate points. Runway features use `properties.pair` as their key.
 
